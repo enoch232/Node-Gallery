@@ -33,6 +33,18 @@ app.get("/newgallery", function(req, res){
 	res.render("newgallery");
 });
 app.post("/newgallery", upload.any(), function(req, res){
-	res.send(req.files);
+	var newGallery = new Gallery();
+	newGallery.galleryName = req.body.galleryname;
+	newGallery.description = req.body.description;
+	console.log(image_counter);
+	for(var i = image_counter - 1; i >= 0; i --){
+		newGallery.images.push(req.body.galleryname + "-" + i + ".png");
+	}
+	newGallery.save(function(err, files){
+		if (err){
+			throw err;
+		}
+		res.send(req.files);
+	});
 });
 
