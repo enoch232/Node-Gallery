@@ -1,15 +1,18 @@
 var mongoose = require('mongoose');
+var multer = require("multer");
 var userSchema = new mongoose.Schema({
-	email: {
+	fullname: {
 		type: String,
 		required: true
+	},
+	email: {
+		type: String,
+		required: true,
+		unique: true
 	},
 	password: {
 		type: String,
 		required: true
 	}
 });
-var Gallery = module.exports = mongoose.model('User', userSchema);
-module.exports.getGalleries = function(callback, limit){
-	Gallery.find(callback).limit(limit);
-};
+var User = module.exports = mongoose.model('User', userSchema);
