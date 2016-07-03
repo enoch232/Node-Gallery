@@ -38,7 +38,7 @@ app.get("/", function(req, res){
 	});
 });
 app.get("/new", function(req, res){
-	res.render("gallery/new.ejs");
+	res.render("gallery/new");
 });
 app.post("/new", upload.any(), function(req, res){
 	var newGallery = new Gallery();
@@ -59,7 +59,7 @@ app.get("/show/:_id", function(req, res){
 	Gallery.getGallery(req.param._id, function(err, gallery){
 		if (!gallery){
 			console.log("gallery doesnt exist.");
-			res.render("gallery/show", {gallery: 0})
+			res.redirect("/");
 		}
 		if (err){
 			console.log("err occurred.")
