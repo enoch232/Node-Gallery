@@ -1,0 +1,10 @@
+<div>
+<div>Show Gallery</div>
+<% if (gallery != 0){ %>
+<% for(var i; i < gallery.images.length; i++){ %>
+<div>
+<img src = "./public/images/<%= gallery.images[i]%>" style = "width:300px"></img>
+</div>
+<% } %>
+<% } %>
+</div>
