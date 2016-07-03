@@ -6,6 +6,10 @@
 		<a href = "./newgallery">New Gallery</a>
 	</div>
 	<div>
-
+		<%= galleries.length %>
+		<% for(var i = 0;i < galleries.length; i++){ %>
+		<%= galleries[i].galleryName %>
+		<br />
+		<% } %>
 	</div>
 </div>

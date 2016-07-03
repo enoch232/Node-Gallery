@@ -12,3 +12,7 @@ var gallerySchema = new Schema({
 	images: []
 });
 var Gallery = module.exports = mongoose.model("gallery", gallerySchema);
+module.exports.getGalleries = function(callback){
+	Gallery.find(callback);
+
+}
