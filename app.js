@@ -3,9 +3,8 @@ var multer = require('multer');
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var path = require('path');
-Gallery = require('./models/gallery');
-Image = require('./models/image');
-User = require('./models/user');
+Gallery = require('./gallery/gallery');
+User = require('./user/user');
 
 mongoose.connect("mongodb://localhost:27017/nodegallery");
 var app = express();
@@ -23,6 +22,7 @@ var upload = multer({
 	})
 });
 app.set("view engine", "ejs");
+app.set('views', __dirname + "/");
 app.use(express.static('public'));
 var port = process.env.PORT || 3000;
 console.log("Server is now running at port " + port);
@@ -33,14 +33,14 @@ app.get("/", function(req, res){
 		if (err){
 			throw err;
 		}else{
-			res.render("index", {galleries: galleries });
+			res.render("gallery/index", {galleries: galleries });
 		}
 	});
 });
-app.get("/newgallery", function(req, res){
-	res.render("newgallery");
+app.get("/new", function(req, res){
+	res.render("gallery/new.ejs");
 });
-app.post("/newgallery", upload.any(), function(req, res){
+app.post("/new", upload.any(), function(req, res){
 	var newGallery = new Gallery();
 	newGallery.galleryName = req.body.galleryname;
 	newGallery.description = req.body.description;
