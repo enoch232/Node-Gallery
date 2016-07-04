@@ -69,3 +69,15 @@ app.get("/show/:_id", function(req, res){
 		}
 	});
 });
+app.get("/login", function(req, res){
+	render("user/login");
+});
+//app.post("/login", function(req, res){
+
+//});
+app.get("/register", function(req, res){
+	render("user/register");
+});
+app.post("/register", function(req, res){
+
+});

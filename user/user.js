@@ -16,3 +16,6 @@ var userSchema = new mongoose.Schema({
 	}
 });
 var User = module.exports = mongoose.model('User', userSchema);
+module.exports.addUser = function(user, callback){
+
+}
