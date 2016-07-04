@@ -2,6 +2,8 @@ var express = require('express');
 var multer = require('multer');
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
+var bcrypt = require("bcrypt");
+var session = require("client-sessions");
 var path = require('path');
 Gallery = require('./gallery/gallery');
 User = require('./user/user');
@@ -70,14 +72,21 @@ app.get("/show/:_id", function(req, res){
 	});
 });
 app.get("/login", function(req, res){
-	render("user/login");
+	res.render("user/login");
 });
 //app.post("/login", function(req, res){
 
 //});
 app.get("/register", function(req, res){
-	render("user/register");
+	res.render("user/register");
 });
 app.post("/register", function(req, res){
-
+	User.addUser(req.body, function(err, user){
+		if (err){
+			console.log(err);
+			res.redirect("/");
+		}else{
+			res.json(user);
+		}
+	});
 });
