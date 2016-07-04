@@ -90,7 +90,7 @@ app.get("/new", function(req, res){
 	res.render("gallery/new");
 });
 app.post("/new", upload.any(), function(req, res){
-	Gallery.addGallery(image_counter, req, res);
+	Gallery.addGallery(req.session.user, image_counter, req, res);
 });
 app.get("/show/:_id", function(req, res){
 	Gallery.getGallery(req.params._id, req, res);
