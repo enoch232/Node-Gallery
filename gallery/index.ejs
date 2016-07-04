@@ -16,7 +16,13 @@
 		<a href = "./new">New Gallery</a>
 	</div>
 	<div>
-		<%= galleries.length %>
+		<% if (galleries.length > 1){ %>
+		You have <%= galleries.length %> galleries.
+		<% }else{ %>
+		You have <%= galleries.length %> gallery.
+		<% } %>
+		<br />
+		
 		<% for(var i = 0;i < galleries.length; i++){ %>
 		<a href = "/show/<%= galleries[i]._id %>"><%= galleries[i].galleryName %></a>
 		<br />
