@@ -14,7 +14,8 @@ var gallerySchema = new Schema({
 	description: {
 		type: String
 	},
-	images: []
+	images: [],
+	comments: []
 });
 var Gallery = module.exports = mongoose.model("gallery", gallerySchema);
 //add a gallery
