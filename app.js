@@ -84,7 +84,7 @@ app.post("/login", function(req, res){
 				console.log(err);
 				res.render("user/login");
 			}
-			if (req.body.password === user.password){
+			if (bcrypt.compareSync(req.body.password, user.password)){
 				console.log("successfully logged in!");
 				res.redirect("/gallery/index");
 			}else{
