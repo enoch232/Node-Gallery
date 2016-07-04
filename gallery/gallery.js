@@ -12,9 +12,34 @@ var gallerySchema = new Schema({
 	images: []
 });
 var Gallery = module.exports = mongoose.model("gallery", gallerySchema);
-module.exports.getGalleries = function(callback){
-	Gallery.find(callback);
+module.exports.getGalleries = function(req, res){
+	Gallery.find(function(err, galleries){
+		if (!galleries){
+			console.log("galleries not found");
+			res.redirect("/");
+		}else{
+			if (err){
+				console.log(err);
+				res.redirect("/");
+			}else{
+				res.render("gallery/index", {galleries: galleries });
+			}
+		}
+		
+	});
 }
-module.exports.getGallery = function(id, callback){
-	Gallery.findById(id, callback);
+module.exports.getGallery = function(id, req, res){
+	Gallery.findById(id, function(err, gallery){
+		if (!gallery){
+			console.log("gallery doesnt exist.");
+			res.redirect("/");
+		}else{
+			if (err){
+				console.log("err occurred.");
+				res.redirect("/");
+			}else{
+				res.render("gallery/show", {gallery: gallery});
+			}
+		}
+	});
 }

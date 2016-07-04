@@ -67,62 +67,24 @@ var port = process.env.PORT || 3000;
 console.log("Server is now running at port " + port);
 app.listen(port);
 
-
+//needs to be organized using routers
 app.get("/login", function(req, res){
 	res.render("user/login");
 });
 app.post("/login", function(req, res){
-	User.findOne({email: req.body.email}, function(err, user){
-		if (!user){
-			console.log("Wrong email");
-			res.render("user/login");
-		}else{
-			if (err){
-				console.log(err);
-				res.render("user/login");
-			}
-			if (bcrypt.compareSync(req.body.password, user.password)){
-				console.log("successfully logged in!");
-				req.session.user = user;
-				res.redirect("/");
-			}else{
-				console.log("Wrong password");
-				res.render("user/login");
-			}
-		}
-	});
+	User.login(req.body, req, res);
 });
 app.get("/register", function(req, res){
 	res.render("user/register");
 });
 app.post("/register", function(req, res){
-	User.addUser(req.body, function(err, user){
-		if (err){
-			console.log(err);
-			res.redirect("/");
-		}else{
-			res.render("user/index", {user: user});
-		}
-	});
+	User.addUser(req.body, req, res);
 });
 //middleware for loginCheck
 app.use(loginCheck);
 
 app.get("/", function(req, res){
-	Gallery.getGalleries(function(err, galleries){
-		if (!galleries){
-			console.log("galleries not found");
-			res.redirect("/");
-		}else{
-			if (err){
-				console.log(err);
-				res.redirect("/");
-			}else{
-				res.render("gallery/index", {galleries: galleries });
-			}
-		}
-		
-	});
+	Gallery.getGalleries(req, res);
 });
 app.get("/new", function(req, res){
 	res.render("gallery/new");
@@ -138,23 +100,11 @@ app.post("/new", upload.any(), function(req, res){
 	newGallery.save(function(err, files){
 		if (err){
 			console.log(err);
-			res.redirect("/")
+			res.redirect("/");
 		}
 		res.send(req.files);
 	});
 });
 app.get("/show/:_id", function(req, res){
-	Gallery.getGallery(req.params._id, function(err, gallery){
-		if (!gallery){
-			console.log("gallery doesnt exist.");
-			res.redirect("/");
-		}else{
-			if (err){
-				console.log("err occurred.");
-				res.redirect("/");
-			}else{
-				res.render("gallery/show", {gallery: gallery});
-			}
-		}
-	});
+	Gallery.getGallery(req.params._id, req, res);
 });
