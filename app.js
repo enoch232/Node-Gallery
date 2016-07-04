@@ -74,9 +74,26 @@ app.get("/show/:_id", function(req, res){
 app.get("/login", function(req, res){
 	res.render("user/login");
 });
-//app.post("/login", function(req, res){
-
-//});
+app.post("/login", function(req, res){
+	User.findOne({email: req.body.email}, function(err, user){
+		if (!user){
+			console.log("Wrong email");
+			res.render("user/login");
+		}else{
+			if (err){
+				console.log(err);
+				res.render("user/login");
+			}
+			if (req.body.password === user.password){
+				console.log("successfully logged in!");
+				res.redirect("/gallery/index");
+			}else{
+				console.log("Wrong password");
+				res.render("user/login");
+			}
+		}
+	});
+});
 app.get("/register", function(req, res){
 	res.render("user/register");
 });
