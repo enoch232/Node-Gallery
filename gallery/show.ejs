@@ -1,5 +1,8 @@
 <div>
 <div>Show Gallery</div>
+<div>
+By <%= user.fullname %>
+</div>
 <% for(var i = 0; i < gallery.images.length; i++){ %>
 <div>
 <img src = "../images/<%= gallery.images[i]%>" style = "width:300px"></img>

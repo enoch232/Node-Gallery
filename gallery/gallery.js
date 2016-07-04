@@ -29,10 +29,7 @@ module.exports.addGallery = function(user, image_counter, req, res){
 				console.log(err);
 				res.redirect("/new");
 			}else{
-				console.log("users");
-				console.log(foundUser.galleries);
 				foundUser.galleries.push(newGallery._id);
-				console.log(foundUser.galleries);
 				foundUser.save(function(err){
 					if (err){
 						console.log("Error trying to update gallery list");
@@ -45,11 +42,11 @@ module.exports.addGallery = function(user, image_counter, req, res){
 	newGallery.user = user.email;
 	newGallery.galleryName = req.body.galleryname;
 	newGallery.description = req.body.description;
-	console.log(image_counter);
-	for(var i = image_counter - 1; i >= 0; i --){
+	console.log(image_counter.count);
+	for(var i = image_counter.count - 1; i >= 0; i --){
 		newGallery.images.push(req.body.galleryname + "-" + i + ".png");
 	}
-	image_counter = 0; //make this object
+	image_counter.count = 0; //make this object
 	newGallery.save(function(err, gallery){
 		if (err){
 			console.log(err);

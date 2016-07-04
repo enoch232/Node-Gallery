@@ -21,7 +21,9 @@ app.use(sessions({
 	secure: true,
 	ephemeral: true
 }));
-var image_counter = 0;
+var image_counter = {
+	count: 0
+}
 var upload = multer({
 	storage: multer.diskStorage({
 		destination: function(req, file, callback){
@@ -29,8 +31,8 @@ var upload = multer({
 		},
 		filename: function(req, file, callback){
 		//maybe add by gallery name and add number
-			callback(null, req.body.galleryname + "-" +image_counter +".png");
-			image_counter ++;
+			callback(null, req.body.galleryname + "-" +image_counter.count +".png");
+			image_counter.count ++;
 		}
 	})
 });
