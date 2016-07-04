@@ -29,7 +29,7 @@ module.exports.addUser = function(user, req, res){
 			console.log(err);
 			res.redirect("/");
 		}else{
-			res.render("user/index", {user: user});
+			res.render("gallery/index", {user: user, galleries: []});
 		}
 	});
 }
