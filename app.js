@@ -83,6 +83,10 @@ app.post("/register", function(req, res){
 //middleware for loginCheck
 app.use(loginCheck);
 //all the paths below needs login.
+app.get("/logout", function(req, res){
+	delete req.session.user;
+	res.redirect("/login");
+});
 app.get("/", function(req, res){
 	Gallery.getGalleries(req, res);
 });
