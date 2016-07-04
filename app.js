@@ -86,7 +86,7 @@ app.post("/register", function(req, res){
 			console.log(err);
 			res.redirect("/");
 		}else{
-			res.json(user);
+			res.render("index", {user: user});
 		}
 	});
 });

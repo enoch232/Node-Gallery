@@ -18,7 +18,7 @@ var userSchema = new mongoose.Schema({
 var User = module.exports = mongoose.model('User', userSchema);
 module.exports.addUser = function(user, callback){
 	var newUser = new User();
-	newUser.name = user.name;
+	newUser.fullname = user.fullname;
 	newUser.password = user.password;
 	newUser.email = user.email;
 	newUser.save(callback);
