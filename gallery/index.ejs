@@ -1,3 +1,13 @@
+<html>
+<head>
+	<title>
+		Home
+	</title>
+	<style>
+	</style>
+	<link href = "./application.css" type = "text/css" rel = "stylesheet" />
+</head>
+<body>
 <div>
 	<div>
 		Welcome to Gallery, <%= user.fullname %>
@@ -8,8 +18,10 @@
 	<div>
 		<%= galleries.length %>
 		<% for(var i = 0;i < galleries.length; i++){ %>
-		<%= galleries[i].galleryName %>
+		<a href = "/show/<%= galleries[i]._id %>"><%= galleries[i].galleryName %></a>
 		<br />
 		<% } %>
 	</div>
 </div>
+</body>
+</html>
