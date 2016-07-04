@@ -1,8 +1,8 @@
 <div>
 <div>Show Gallery</div>
-<% for(var i; i < gallery.images.length; i++){ %>
+<% for(var i = 0; i < gallery.images.length; i++){ %>
 <div>
-<img src = "./public/images/<%= gallery.images[i]%>" style = "width:300px"></img>
+<img src = "../images/<%= gallery.images[i]%>" style = "width:300px"></img>
 </div>
 <% } %>
 </div>

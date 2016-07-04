@@ -56,14 +56,14 @@ app.post("/new", upload.any(), function(req, res){
 	});
 });
 app.get("/show/:_id", function(req, res){
-	Gallery.getGallery(req.param._id, function(err, gallery){
+	Gallery.getGallery(req.params._id, function(err, gallery){
 		if (!gallery){
 			console.log("gallery doesnt exist.");
 			res.redirect("/");
 		}
 		if (err){
-			console.log("err occurred.")
-			throw err;
+			console.log("err occurred.");
+			res.redirect("/");
 		}else{
 			res.render("gallery/show", {gallery: gallery});
 		}
