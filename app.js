@@ -82,7 +82,7 @@ app.post("/register", function(req, res){
 });
 //middleware for loginCheck
 app.use(loginCheck);
-
+//all the paths below needs login.
 app.get("/", function(req, res){
 	Gallery.getGalleries(req, res);
 });
@@ -90,20 +90,7 @@ app.get("/new", function(req, res){
 	res.render("gallery/new");
 });
 app.post("/new", upload.any(), function(req, res){
-	var newGallery = new Gallery();
-	newGallery.galleryName = req.body.galleryname;
-	newGallery.description = req.body.description;
-	console.log(image_counter);
-	for(var i = image_counter - 1; i >= 0; i --){
-		newGallery.images.push(req.body.galleryname + "-" + i + ".png");
-	}
-	newGallery.save(function(err, files){
-		if (err){
-			console.log(err);
-			res.redirect("/");
-		}
-		res.send(req.files);
-	});
+	Gallery.addGallery(image_counter, req, res);
 });
 app.get("/show/:_id", function(req, res){
 	Gallery.getGallery(req.params._id, req, res);

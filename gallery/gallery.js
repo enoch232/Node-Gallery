@@ -12,6 +12,25 @@ var gallerySchema = new Schema({
 	images: []
 });
 var Gallery = module.exports = mongoose.model("gallery", gallerySchema);
+//add a gallery
+module.exports.addGallery = function(image_counter, req, res){
+	var newGallery = new Gallery();
+	newGallery.galleryName = req.body.galleryname;
+	newGallery.description = req.body.description;
+	console.log(image_counter);
+	for(var i = image_counter - 1; i >= 0; i --){
+		newGallery.images.push(req.body.galleryname + "-" + i + ".png");
+	}
+	image_counter = 0;
+	newGallery.save(function(err, files){
+		if (err){
+			console.log(err);
+			res.redirect("/");
+		}
+		res.send(req.files);
+	});
+}
+//get all galleries
 module.exports.getGalleries = function(req, res){
 	Gallery.find(function(err, galleries){
 		if (!galleries){
@@ -28,6 +47,7 @@ module.exports.getGalleries = function(req, res){
 		
 	});
 }
+//get specific gallery
 module.exports.getGallery = function(id, req, res){
 	Gallery.findById(id, function(err, gallery){
 		if (!gallery){

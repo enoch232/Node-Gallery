@@ -18,6 +18,7 @@ var userSchema = new mongoose.Schema({
 	galleries: []
 });
 var User = module.exports = mongoose.model('User', userSchema);
+//user registration
 module.exports.addUser = function(user, req, res){
 	var newUser = new User();
 	newUser.fullname = user.fullname;
@@ -32,6 +33,7 @@ module.exports.addUser = function(user, req, res){
 		}
 	});
 }
+//user authentication
 module.exports.login = function(loginUser, req, res){
 	User.findOne({email: loginUser.email}, function(err, user){
 		if (!user){
