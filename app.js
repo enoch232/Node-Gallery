@@ -86,7 +86,7 @@ app.post("/login", function(req, res){
 			}
 			if (bcrypt.compareSync(req.body.password, user.password)){
 				console.log("successfully logged in!");
-				res.redirect("/gallery/index");
+				res.redirect("/");
 			}else{
 				console.log("Wrong password");
 				res.render("user/login");
@@ -103,7 +103,7 @@ app.post("/register", function(req, res){
 			console.log(err);
 			res.redirect("/");
 		}else{
-			res.render("index", {user: user});
+			res.render("user/index", {user: user});
 		}
 	});
 });
