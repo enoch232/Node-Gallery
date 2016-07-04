@@ -35,6 +35,7 @@ var upload = multer({
 	})
 });
 var loginCheck = function(req, res, next){
+	console.log("login needed");
 	if (req.session && req.session.user){
 		User.findOne({email: req.session.user.email}, function(err, user){
 			if (!user){
@@ -52,6 +53,8 @@ var loginCheck = function(req, res, next){
 				}
 			}
 		});
+	}else{
+		res.redirect("/login");
 	}
 }
 app.set("view engine", "ejs");
@@ -104,11 +107,18 @@ app.use(loginCheck);
 
 app.get("/", function(req, res){
 	Gallery.getGalleries(function(err, galleries){
-		if (err){
-			throw err;
+		if (!galleries){
+			console.log("galleries not found");
+			res.redirect("/");
 		}else{
-			res.render("gallery/index", {galleries: galleries });
+			if (err){
+				console.log(err);
+				res.redirect("/");
+			}else{
+				res.render("gallery/index", {galleries: galleries });
+			}
 		}
+		
 	});
 });
 app.get("/new", function(req, res){
@@ -124,7 +134,8 @@ app.post("/new", upload.any(), function(req, res){
 	}
 	newGallery.save(function(err, files){
 		if (err){
-			throw err;
+			console.log(err);
+			res.redirect("/")
 		}
 		res.send(req.files);
 	});
@@ -134,12 +145,13 @@ app.get("/show/:_id", function(req, res){
 		if (!gallery){
 			console.log("gallery doesnt exist.");
 			res.redirect("/");
-		}
-		if (err){
-			console.log("err occurred.");
-			res.redirect("/");
 		}else{
-			res.render("gallery/show", {gallery: gallery});
+			if (err){
+				console.log("err occurred.");
+				res.redirect("/");
+			}else{
+				res.render("gallery/show", {gallery: gallery});
+			}
 		}
 	});
 });
