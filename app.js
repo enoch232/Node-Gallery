@@ -34,6 +34,7 @@ var upload = multer({
 		}
 	})
 });
+//login checking middleware. Sets user, and resets session if needed.
 var loginCheck = function(req, res, next){
 	console.log("login needed");
 	if (req.session && req.session.user){
@@ -49,6 +50,8 @@ var loginCheck = function(req, res, next){
 					res.redirect("/login");
 				}else{
 					console.log("session passed");
+					//make user available
+					res.locals.user = user
 					next();
 				}
 			}
