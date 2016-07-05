@@ -1,3 +1,13 @@
+
 a{
 	text-decoration: none;
+}
+.login-div{
+	padding-top:3rem;
+	background-color:#e5e5e5;
+	text-align:center;
+	margin:2rem auto;
+	width:40%;
+	min-width: 30rem;
+	height:20rem;
 }

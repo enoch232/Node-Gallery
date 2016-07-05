@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var bcrypt = require("bcrypt");
 var sessions = require("client-sessions");
 var path = require('path');
+Comment = require("./comment/comment");
 Gallery = require('./gallery/gallery');
 User = require('./user/user');
 
