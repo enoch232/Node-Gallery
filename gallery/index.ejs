@@ -6,27 +6,32 @@
 	<link href = "./stylesheets/application.css" type = "text/css" rel = "stylesheet" />
 </head>
 <body>
-<div>
 	<div>
-		Welcome to Gallery, <%= user.fullname %>
-	</div>
+		<div>
+			Welcome to Gallery, <%= user.fullname %>
+		</div>
 		<a href = "/logout">Log Out</a>
-	<div>
-		<a href = "./new">New Gallery</a>
+		<div>
+			<a href = "./new">New Gallery</a>
+		</div>
+		<div>
+			<% if (galleries.length > 1){ %>
+			There are <%= galleries.length %> galleries.
+			<% }else{ %>
+			There are <%= galleries.length %> gallery.
+			<% } %>
+			<br />
+			
+			<% for(var i = 0;i < galleries.length; i++){ %>
+			<a href = "/show/<%= galleries[i]._id %>"><%= galleries[i].galleryName %></a>
+			<% if (galleries[i].user === user.email){ %>
+			<a href = "/delete/<%= galleries[i]._id %>">X</a>
+			<% }else{ %>
+
+			<% } %>
+			<br />
+			<% } %>
+		</div>
 	</div>
-	<div>
-		<% if (galleries.length > 1){ %>
-		You have <%= galleries.length %> galleries.
-		<% }else{ %>
-		You have <%= galleries.length %> gallery.
-		<% } %>
-		<br />
-		
-		<% for(var i = 0;i < galleries.length; i++){ %>
-		<a href = "/show/<%= galleries[i]._id %>"><%= galleries[i].galleryName %></a>
-		<br />
-		<% } %>
-	</div>
-</div>
 </body>
 </html>
