@@ -2,24 +2,26 @@
 <html>
 <head>
 	<title> New Gallery </title>
-	<link rel = "stylesheet" type = "text/css" href = "/stylesheet/application.css"></link>
+	<link rel = "stylesheet" type = "text/css" href = "/stylesheets/application.css"></link>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
-	<form method = "post" enctype = "multipart/form-data">
-		<label>Gallery Title</label>
-		<br />
-		<input type = "text" name = "galleryname" />
-		<br />
-		<label>Gallery Description</label>
-		<br />
-		<textarea name = "description"></textarea>
-		<br />
-		<label>Images</label>
-		<br />
-		<input type = "file" name = "myfile" multiple />
-		<br />
-		<input type = "submit" name = "submit" />
-	</form>
+	<div class = "jumbotron">
+		<form method = "post" enctype = "multipart/form-data">
+			<label>Gallery Title</label>
+			<br />
+			<input type = "text" name = "galleryname" />
+			<br />
+			<label>Gallery Description</label>
+			<br />
+			<textarea name = "description"></textarea>
+			<br />
+			<label>Images</label>
+			<br />
+			<input type = "file" name = "myfile" multiple />
+			<br />
+			<input type = "submit" name = "submit" />
+		</form>
+	</div>
 </body>
 </html>
