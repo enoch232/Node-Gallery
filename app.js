@@ -80,6 +80,7 @@ app.post("/login", function(req, res){
 	User.login(req.body, req, res);
 });
 app.get("/register", function(req, res){
+	res.locals.user = null;
 	res.render("user/register");
 });
 app.post("/register", function(req, res){
