@@ -5,6 +5,7 @@
 	</title>
 	<link href = "./stylesheets/application.css" type = "text/css" rel = "stylesheet">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div>
@@ -22,7 +23,6 @@
 			There are <%= galleries.length %> gallery.
 			<% } %>
 			<br />
-			
 			<% for(var i = 0;i < galleries.length; i++){ %>
 			<a href = "/show/<%= galleries[i]._id %>"><%= galleries[i].galleryName %></a>
 			<% if (galleries[i].user === user.email){ %>

@@ -4,13 +4,13 @@
 	<title><%= gallery.galleryName %></title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel = "stylesheet" type = "text/css" href = "/stylesheets/application.css">
-
+	<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<% include ../partials/header %>
 	<div>
 		<div class = "gallery-show-name-container"><%= gallery.galleryName %></div>
-		<div style = "text-align:center">
+		<div style = "text-align:center;margin:1rem">
 			By <%= gallery.user %>
 		</div>
 		<div class = "gallery-container">

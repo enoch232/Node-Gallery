@@ -1,4 +1,7 @@
 
+*{
+	font-family: 'Fira Sans', sans-serif;
+}
 a{
 	text-decoration: none;
 }
@@ -13,8 +16,7 @@ a{
 }
 .show-image{
 	text-align:center;
-	padding:1rem;
-	margin: 1.5rem auto;
+	margin: 3rem auto;
 }
 .gallery-show-name-container{
 	border: 3px solid black;
@@ -31,5 +33,7 @@ a{
 	background-color:#e5e5e5;
 	color:#e5e5e5;
 	text-align:center;
+	width:900px;
+	padding:2rem;
 	margin:0 auto;
 }
