@@ -54,7 +54,7 @@ var loginCheck = function(req, res, next){
 				}else{
 					console.log("session passed");
 					//make user available
-					res.locals.user = user
+					res.locals.user = user;
 					next();
 				}
 			}
@@ -72,6 +72,8 @@ app.listen(port);
 
 //needs to be organized using routers
 app.get("/login", function(req, res){
+	//logout
+	res.locals.user = null;
 	res.render("user/login");
 });
 app.post("/login", function(req, res){
