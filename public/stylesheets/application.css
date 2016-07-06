@@ -12,7 +12,13 @@ a:hover{
 }
 .gallery-link{
 	text-align: center;
+	color:black;
+	text-decoration: none;
 	margin:2rem auto;
+}
+.gallery-link:hover{
+	color:black;
+	text-decoration: none;
 }
 .gallery-name{
 	font-size:1.8rem;

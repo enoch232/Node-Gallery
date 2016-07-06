@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var multer = require("multer");
 var bcrypt = require("bcrypt");
+var Gallery = require("../gallery/gallery");
 var userSchema = new mongoose.Schema({
 	fullname: {
 		type: String,
@@ -27,9 +28,11 @@ module.exports.addUser = function(user, req, res){
 	newUser.save(function(err, user){
 		if (err){
 			console.log(err);
-			res.redirect("/");
+			res.redirect("/register");
 		}else{
-			res.render("gallery/index", {user: user, galleries: []});
+			req.session.user = user;
+			res.redirect("/");
+			//res.render("gallery/index", {user: user, galleries: Gallery.find() });
 		}
 	});
 }
