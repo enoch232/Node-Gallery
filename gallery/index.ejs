@@ -26,15 +26,17 @@
 			<a class = "gallery-link" href = "/show/<%= galleries[i]._id %>">
 				<div class = "gallery-name">
 					<%= galleries[i].galleryName %>
-					<% if (galleries[i].user === user.email){ %>
-					<a href = "/delete/<%= galleries[i]._id %>">Delete</a>
-					<% }else{ %>
-					<% } %>
 				</div>
 				<div class = "gallery-first-image">
 					<img src = "../images/<%= galleries[i].images[0]%>" class = "index-image"></img>
 				</div>
 			</a>
+			<div style = "text-align:center">
+				<% if (galleries[i].user === user.email){ %>
+				<a href = "/delete/<%= galleries[i]._id %>">Delete</a>
+				<% }else{ %>
+				<% } %>
+			</div>
 			<br />
 			<% } %>
 		</div>
