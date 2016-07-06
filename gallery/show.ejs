@@ -9,15 +9,17 @@
 <body>
 	<% include ../partials/header %>
 	<div>
-		<div class = "jumbotron">Show Gallery</div>
-		<div>
+		<div class = "gallery-show-name-container"><%= gallery.galleryName %></div>
+		<div style = "text-align:center">
 			By <%= gallery.user %>
 		</div>
-		<% for(var i = 0; i < gallery.images.length; i++){ %>
-		<div class = "show-image">
-			<img src = "../images/<%= gallery.images[i]%>" style = "width:300px"></img>
+		<div class = "gallery-container">
+			<% for(var i = 0; i < gallery.images.length; i++){ %>
+			<div class = "show-image">
+				<img src = "../images/<%= gallery.images[i]%>" class = "image"></img>
+			</div>
+			<% } %>
 		</div>
-		<% } %>
 	</div>
 </body>
 </html>

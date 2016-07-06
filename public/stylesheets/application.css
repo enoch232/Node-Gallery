@@ -12,10 +12,24 @@ a{
 	height:22rem;
 }
 .show-image{
-	background-color:green;
+	text-align:center;
 	padding:1rem;
-	width:90%;
-	height:40rem;
-	margin: 1rem auto;
+	margin: 1.5rem auto;
 }
- 
+.gallery-show-name-container{
+	border: 3px solid black;
+	text-align:center;
+	width:21rem;
+	margin: 0 auto;
+	font-size:2rem;
+}
+.image{
+	width:700px;
+	text-align:center;
+}
+.gallery-container{
+	background-color:#e5e5e5;
+	color:#e5e5e5;
+	text-align:center;
+	margin:0 auto;
+}
