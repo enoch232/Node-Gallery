@@ -91,3 +91,16 @@ module.exports.getGallery = function(id, req, res){
 		}
 	});
 }
+//delete specific gallery
+module.exports.removeGallery = function(id, req, res){
+	Gallery.findByIdAndRemove(id, function(err){
+		if (err){
+			console.log("err occurred.");
+			res.redirect("/");
+		}else{
+			console.log("successfull deleted gallery:"+ id);
+			res.redirect("/");
+		}
+	});
+
+}

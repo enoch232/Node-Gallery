@@ -105,3 +105,6 @@ app.post("/new", upload.any(), function(req, res){
 app.get("/show/:_id", function(req, res){
 	Gallery.getGallery(req.params._id, req, res);
 });
+app.post("/delete/:_id", function(req, res){
+	Gallery.removeGallery(req.params._id, req, res);
+});

@@ -32,7 +32,6 @@ module.exports.addUser = function(user, req, res){
 		}else{
 			req.session.user = user;
 			res.redirect("/");
-			//res.render("gallery/index", {user: user, galleries: Gallery.find() });
 		}
 	});
 }
