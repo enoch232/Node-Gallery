@@ -33,7 +33,7 @@
 			</a>
 			<div style = "text-align:center">
 				<% if (galleries[i].user === user.email){ %>
-				<a href = "/delete/<%= galleries[i]._id %>">Delete</a>
+				<a href = "/delete/<%= galleries[i]._id %>" class = "delete-button">Delete</a>
 				<% }else{ %>
 				<% } %>
 			</div>
