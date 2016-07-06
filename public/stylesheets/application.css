@@ -3,7 +3,19 @@
 	font-family: 'Fira Sans', sans-serif;
 }
 a{
+	color:black;
 	text-decoration: none;
+}
+a:hover{
+	color:black;
+	text-decoration: none;
+}
+.gallery-link{
+	text-align: center;
+	margin:2rem auto;
+}
+.gallery-name{
+	font-size:1.8rem;
 }
 .login-div{
 	padding-top:3rem;
@@ -27,6 +39,10 @@ a{
 }
 .image{
 	width:700px;
+	text-align:center;
+}
+.index-image{
+	width:400px;
 	text-align:center;
 }
 .gallery-container{

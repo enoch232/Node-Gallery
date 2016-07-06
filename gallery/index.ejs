@@ -11,20 +11,26 @@
 	<div>
 		<% include ../partials/header %>
 		<div>
-			Welcome to Gallery, <%= user.fullname %>
+			<span style = "font-size:1.5rem;padding-left:2rem">Welcome to Gallery, <%= user.fullname %></span>
 		</div>
 		<div>
-			<a href = "./new">New Gallery</a>
-		</div>
-		<div>
-			<% if (galleries.length > 1){ %>
-			There are <%= galleries.length %> galleries.
-			<% }else{ %>
-			There are <%= galleries.length %> gallery.
-			<% } %>
-			<br />
+			<div style = "text-align:center">
+				<% if (galleries.length > 1){ %>
+				There are <%= galleries.length %> galleries.
+				<% }else{ %>
+				There are <%= galleries.length %> gallery.
+				<% } %>
+			</div>
 			<% for(var i = 0;i < galleries.length; i++){ %>
-			<a href = "/show/<%= galleries[i]._id %>"><%= galleries[i].galleryName %></a>
+
+			<a class = "gallery-link" href = "/show/<%= galleries[i]._id %>">
+				<div class = "gallery-name">
+					<%= galleries[i].galleryName %>
+				</div>
+				<div class = "gallery-first-image">
+					<img src = "../images/<%= galleries[i].images[0]%>" class = "index-image"></img>
+				</div>
+			</a>
 			<% if (galleries[i].user === user.email){ %>
 			<a href = "/delete/<%= galleries[i]._id %>">X</a>
 			<% }else{ %>
