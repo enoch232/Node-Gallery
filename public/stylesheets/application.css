@@ -68,3 +68,9 @@ a:hover{
 	color:black;
 	text-decoration: none;
 }
+.new-gallery{
+	margin:0 auto;
+	text-align:center;
+	width:40%;
+	min-width:300px;
+}

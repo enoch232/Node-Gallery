@@ -8,21 +8,27 @@
 </head>
 <body>
 	<% include ../partials/header %>
-	<div class = "jumbotron">
+	<div class = "jumbotron" style = "text-align:center">
 		<form method = "post" enctype = "multipart/form-data">
 			<label>Gallery Title</label>
 			<br />
-			<input type = "text" name = "galleryname" />
+			<div class = "new-gallery">
+				<input type = "text" name = "galleryname" class = "form-control" />
+			</div>
 			<br />
 			<label>Gallery Description</label>
 			<br />
-			<textarea name = "description"></textarea>
+			<div class = "new-gallery">
+				<textarea name = "description" class = "form-control"></textarea>
+			</div>
 			<br />
 			<label>Images</label>
 			<br />
-			<input type = "file" name = "myfile" multiple />
+			<div class = "new-gallery">
+				<input type = "file" name = "myfile" multiple />
+			</div>
 			<br />
-			<input type = "submit" name = "submit" />
+			<input type = "submit" name = "submit" class= "btn btn-info" />
 		</form>
 	</div>
 </body>
