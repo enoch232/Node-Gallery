@@ -30,7 +30,7 @@ a:hover{
 	margin:2rem auto;
 	width:40%;
 	min-width: 30rem;
-	height:25rem;
+	height:30rem;
 }
 .register-div{
 	padding-top:3rem;
@@ -84,6 +84,11 @@ a:hover{
 	min-width:300px;
 }
 .register-user{
+	margin:0 auto;
+	width:30%;
+	min-width:200px;
+}
+.login-user{
 	margin:0 auto;
 	width:30%;
 	min-width:200px;
