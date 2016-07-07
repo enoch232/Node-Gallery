@@ -20,12 +20,16 @@
 			</div>
 			<% } %>
 		</div>
-		<div class = "comment">
+		<div style = "margin-top:2rem">
 			<form method = "post">
-				<div class = "gallery-comment">
-					<input type = "textarea" name = "comment-text" class = "form-control" />
+				<div style = "margin:0 auto">
+					<div class = "gallery-comment" style= "width:70%;display:inline-block">
+						<input type = "textarea" name = "comment-text" class = "form-control" />
+					</div>
+					<div class = "gallery-comment" style = "width:30%;display:inline-block">
+						<input type = "submit" name = "comment-submit" value = "Comment" class = "btn btn-default" />
+					</div>
 				</div>
-				<input type = "submit" name = "comment-submit" value = "Comment" />
 			</form>
 		</div>
 		<div class = "comment-holder">
