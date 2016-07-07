@@ -30,7 +30,16 @@ a:hover{
 	margin:2rem auto;
 	width:40%;
 	min-width: 30rem;
-	height:22rem;
+	height:25rem;
+}
+.register-div{
+	padding-top:3rem;
+	background-color:#e5e5e5;
+	text-align:center;
+	margin:2rem auto;
+	width:40%;
+	min-width: 30rem;
+	height:33rem;
 }
 .show-image{
 	text-align:center;
@@ -73,4 +82,9 @@ a:hover{
 	text-align:center;
 	width:40%;
 	min-width:300px;
+}
+.register-user{
+	margin:0 auto;
+	width:30%;
+	min-width:200px;
 }
