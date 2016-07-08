@@ -24,6 +24,7 @@ a:hover{
 	font-size:1.8rem;
 }
 .login-div{
+	border-radius: 5px;
 	padding-top:3rem;
 	background-color:#e5e5e5;
 	text-align:center;
@@ -32,6 +33,12 @@ a:hover{
 	min-width: 30rem;
 	height:30rem;
 }
+.login-div-title{
+	text-align: center;
+	font-size:3rem;
+}
+
+
 .register-div{
 	padding-top:3rem;
 	background-color:#e5e5e5;
@@ -41,6 +48,12 @@ a:hover{
 	min-width: 30rem;
 	height:33rem;
 }
+.register-div-title{
+	text-align: center;
+	font-size:3rem;
+}
+
+
 .show-image{
 	text-align:center;
 	margin: 3rem auto;
